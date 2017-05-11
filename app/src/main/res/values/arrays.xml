@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="default_numbers">
+        <item>@string/default_one</item>
+        <item>@string/default_two</item>
+        <item>@string/default_three</item>
+        <item>@string/default_four</item>
+        <item>@string/default_five</item>
+        <item>@string/default_six</item>
+        <item>@string/default_seven</item>
+        <item>@string/default_eight</item>
+        <item>@string/default_nine</item>
+        <item>@string/default_ten</item>
+    </string-array>
+
+    <string-array name="miwok_numbers">
+        <item>@string/miwok_one</item>
+        <item>@string/miwok_two</item>
+        <item>@string/miwok_three</item>
+        <item>@string/miwok_four</item>
+        <item>@string/miwok_five</item>
+        <item>@string/miwok_six</item>
+        <item>@string/miwok_seven</item>
+        <item>@string/miwok_eight</item>
+        <item>@string/miwok_nine</item>
+        <item>@string/miwok_ten</item>
+    </string-array>
+
+    <string-array name="default_family">
+        <item>@string/default_father</item>
+        <item>@string/default_mother</item>
+        <item>@string/default_son</item>
+        <item>@string/default_daughter</item>
+        <item>@string/default_older_brother</item>
+        <item>@string/default_younger_brother</item>
+        <item>@string/default_older_sister</item>
+        <item>@string/default_younger_sister</item>
+        <item>@string/default_grandfather</item>
+        <item>@string/default_grandmother</item>
+    </string-array>
+
+    <string-array name="miwok_family">
+        <item>@string/miwok_father</item>
+        <item>@string/miwok_mother</item>
+        <item>@string/miwok_son</item>
+        <item>@string/miwok_daughter</item>
+        <item>@string/miwok_older_brother</item>
+        <item>@string/miwok_younger_brother</item>
+        <item>@string/miwok_older_sister</item>
+        <item>@string/miwok_younger_sister</item>
+        <item>@string/miwok_grandfather</item>
+        <item>@string/miwok_grandmother</item>
+    </string-array>
+
+    <string-array name="default_colors">
+        <item>@string/default_red</item>
+        <item>@string/default_green</item>
+        <item>@string/default_brown</item>
+        <item>@string/default_gray</item>
+        <item>@string/default_black</item>
+        <item>@string/default_white</item>
+        <item>@string/default_dusty_yellow</item>
+        <item>@string/default_mustard_yellow</item>
+    </string-array>
+
+    <string-array name="miwok_colors">
+        <item>@string/miwok_red</item>
+        <item>@string/miwok_green</item>
+        <item>@string/miwok_brown</item>
+        <item>@string/miwok_gray</item>
+        <item>@string/miwok_black</item>
+        <item>@string/miwok_white</item>
+        <item>@string/miwok_dusty_yellow</item>
+        <item>@string/miwok_mustard_yellow</item>
+    </string-array>
+
+    <string-array name="default_phrases">
+        <item>@string/default_phrase1</item>
+        <item>@string/default_phrase2</item>
+        <item>@string/default_phrase3</item>
+        <item>@string/default_phrase4</item>
+        <item>@string/default_phrase5</item>
+        <item>@string/default_phrase6</item>
+        <item>@string/default_phrase7</item>
+        <item>@string/default_phrase8</item>
+        <item>@string/default_phrase9</item>
+        <item>@string/default_phrase10</item>
+    </string-array>
+
+    <string-array name="miwok_phrases">
+        <item>@string/miwok_phrase1</item>
+        <item>@string/miwok_phrase2</item>
+        <item>@string/miwok_phrase3</item>
+        <item>@string/miwok_phrase4</item>
+        <item>@string/miwok_phrase5</item>
+        <item>@string/miwok_phrase6</item>
+        <item>@string/miwok_phrase7</item>
+        <item>@string/miwok_phrase8</item>
+        <item>@string/miwok_phrase9</item>
+        <item>@string/miwok_phrase10</item>
+    </string-array>
+
+    <array name="image_numbers">
+        <item>@drawable/number_one</item>
+        <item>@drawable/number_two</item>
+        <item>@drawable/number_three</item>
+        <item>@drawable/number_four</item>
+        <item>@drawable/number_five</item>
+        <item>@drawable/number_six</item>
+        <item>@drawable/number_seven</item>
+        <item>@drawable/number_eight</item>
+        <item>@drawable/number_nine</item>
+        <item>@drawable/number_ten</item>
+    </array>
+
+    <array name="image_family">
+        <item>@drawable/family_father</item>
+        <item>@drawable/family_mother</item>
+        <item>@drawable/family_son</item>
+        <item>@drawable/family_daughter</item>
+        <item>@drawable/family_older_brother</item>
+        <item>@drawable/family_younger_brother</item>
+        <item>@drawable/family_older_sister</item>
+        <item>@drawable/family_younger_sister</item>
+        <item>@drawable/family_grandfather</item>
+        <item>@drawable/family_grandmother</item>
+    </array>
+
+    <array name="image_colors">
+        <item>@drawable/color_red</item>
+        <item>@drawable/color_green</item>
+        <item>@drawable/color_brown</item>
+        <item>@drawable/color_gray</item>
+        <item>@drawable/color_black</item>
+        <item>@drawable/color_white</item>
+        <item>@drawable/color_dusty_yellow</item>
+        <item>@drawable/color_mustard_yellow</item>
+    </array>
+
+</resources>
