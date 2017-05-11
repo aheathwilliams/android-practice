@@ -18,10 +18,10 @@ public class PhrasesActivity extends AppCompatActivity {
         String[] defaultWords = getResources().getStringArray(R.array.default_phrases);
         String[] miwokWords = getResources().getStringArray(R.array.miwok_phrases);
 
-        for(int i = 0; i < defaultWords.length; i++)
+        for (int i = 0; i < defaultWords.length; i++)
             words.add(new Word(defaultWords[i], miwokWords[i]));
 
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_phrases);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
     }

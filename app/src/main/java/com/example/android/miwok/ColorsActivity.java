@@ -21,11 +21,11 @@ public class ColorsActivity extends AppCompatActivity {
         TypedArray images = getResources().obtainTypedArray(R.array.image_colors);
 
 
-        for(int i = 0; i < defaultWords.length; i++) {
+        for (int i = 0; i < defaultWords.length; i++) {
             words.add(new Word(defaultWords[i], miwokWords[i], images.getResourceId(i, 0)));
         }
 
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_colors);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
     }

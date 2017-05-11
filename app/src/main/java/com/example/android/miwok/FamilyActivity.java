@@ -21,11 +21,11 @@ public class FamilyActivity extends AppCompatActivity {
         TypedArray images = getResources().obtainTypedArray(R.array.image_family);
 
 
-        for(int i = 0; i < defaultWords.length; i++) {
+        for (int i = 0; i < defaultWords.length; i++) {
             words.add(new Word(defaultWords[i], miwokWords[i], images.getResourceId(i, 0)));
         }
 
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_family);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
     }
