@@ -137,4 +137,54 @@
         <item>@drawable/color_mustard_yellow</item>
     </array>
 
+    <array name="audio_numbers">
+        <item>@raw/number_one</item>
+        <item>@raw/number_two</item>
+        <item>@raw/number_three</item>
+        <item>@raw/number_four</item>
+        <item>@raw/number_five</item>
+        <item>@raw/number_six</item>
+        <item>@raw/number_seven</item>
+        <item>@raw/number_eight</item>
+        <item>@raw/number_nine</item>
+        <item>@raw/number_ten</item>
+    </array>
+
+    <array name="audio_family">
+        <item>@raw/family_father</item>
+        <item>@raw/family_mother</item>
+        <item>@raw/family_son</item>
+        <item>@raw/family_daughter</item>
+        <item>@raw/family_older_brother</item>
+        <item>@raw/family_younger_brother</item>
+        <item>@raw/family_older_sister</item>
+        <item>@raw/family_younger_sister</item>
+        <item>@raw/family_grandfather</item>
+        <item>@raw/family_grandmother</item>
+    </array>
+
+    <array name="audio_colors">
+        <item>@raw/color_red</item>
+        <item>@raw/color_green</item>
+        <item>@raw/color_brown</item>
+        <item>@raw/color_gray</item>
+        <item>@raw/color_black</item>
+        <item>@raw/color_white</item>
+        <item>@raw/color_dusty_yellow</item>
+        <item>@raw/color_mustard_yellow</item>
+    </array>
+
+    <array name="audio_phrases">
+        <item>@raw/phrase_where_are_you_going</item>
+        <item>@raw/phrase_what_is_your_name</item>
+        <item>@raw/phrase_my_name_is</item>
+        <item>@raw/phrase_how_are_you_feeling</item>
+        <item>@raw/phrase_im_feeling_good</item>
+        <item>@raw/phrase_are_you_coming</item>
+        <item>@raw/phrase_yes_im_coming</item>
+        <item>@raw/phrase_im_coming</item>
+        <item>@raw/phrase_lets_go</item>
+        <item>@raw/phrase_come_here</item>
+    </array>
+
 </resources>

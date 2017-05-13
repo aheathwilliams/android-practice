@@ -8,16 +8,19 @@ public class Word {
     private String defaultTranslation;
     private String miwokTranslation;
     private int imageResourceId;
+    private int audioResourceId;
 
-    public Word(String defaultWord, String miwokWord, int imageId) {
+    public Word(String defaultWord, String miwokWord, int imageId, int audioId) {
         miwokTranslation = miwokWord;
         defaultTranslation = defaultWord;
         imageResourceId = imageId;
+        audioResourceId = audioId;
     }
 
-    public Word(String defaultWord, String miwokWord) {
+    public Word(String defaultWord, String miwokWord, int audioId) {
         miwokTranslation = miwokWord;
         defaultTranslation = defaultWord;
+        audioResourceId = audioId;
     }
 
     public String getMiwokTranslation() {
@@ -30,5 +33,19 @@ public class Word {
 
     public int getImageResourceId() {
         return imageResourceId;
+    }
+
+    public int getAudioResourceId() {
+        return audioResourceId;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "defaultTranslation='" + defaultTranslation + '\'' +
+                ", miwokTranslation='" + miwokTranslation + '\'' +
+                ", imageResourceId=" + imageResourceId +
+                ", audioResourceId=" + audioResourceId +
+                '}';
     }
 }
