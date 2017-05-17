@@ -1,9 +1,11 @@
 package com.example.android.miwok;
 
+import android.content.Context;
 import android.content.res.TypedArray;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -13,6 +15,26 @@ import java.util.ArrayList;
 public class FamilyActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
+    private AudioManager audioManager;
+
+    private AudioManager.OnAudioFocusChangeListener afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int i) {
+            switch (i) {
+                case AudioManager.AUDIOFOCUS_GAIN:
+                    mediaPlayer.start();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS:
+                    releaseMediaPlayer();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                    mediaPlayer.pause();
+                    mediaPlayer.seekTo(0);
+                    break;
+            }
+        }
+    };
 
     private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
@@ -25,6 +47,8 @@ public class FamilyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
+        audioManager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
 
         ArrayList<Word> words = new ArrayList<>();
 
@@ -39,21 +63,27 @@ public class FamilyActivity extends AppCompatActivity {
 
         WordAdapter adapter = new WordAdapter(this, words, R.color.category_family);
         ListView listView = (ListView) findViewById(R.id.list);
+        assert listView != null;
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Word currentWord = (Word) adapterView.getItemAtPosition(i);
-
                 releaseMediaPlayer();
 
-                mediaPlayer = MediaPlayer.create(FamilyActivity.this, currentWord.getAudioResourceId());
-                mediaPlayer.setOnCompletionListener(completionListener);
+                int result = audioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mediaPlayer = MediaPlayer.create(FamilyActivity.this, currentWord.getAudioResourceId());
+                    mediaPlayer.setOnCompletionListener(completionListener);
 
-                mediaPlayer.start();
+                    mediaPlayer.start();
+                }
             }
         });
+
+        images.recycle();
+        audio.recycle();
     }
 
     @Override
@@ -77,6 +107,8 @@ public class FamilyActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mediaPlayer = null;
+
+            audioManager.abandonAudioFocus(afChangeListener);
         }
     }
 }
