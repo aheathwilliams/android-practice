@@ -1,19 +1,23 @@
 package com.example.android.miwok;
 
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class FamilyActivity extends AppCompatActivity {
-
+public class PhrasesFragment extends Fragment {
     MediaPlayer mediaPlayer;
     private AudioManager audioManager;
 
@@ -43,26 +47,24 @@ public class FamilyActivity extends AppCompatActivity {
         }
     };
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        audioManager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+        audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
         ArrayList<Word> words = new ArrayList<>();
 
-        String[] defaultWords = getResources().getStringArray(R.array.default_family);
-        String[] miwokWords = getResources().getStringArray(R.array.miwok_family);
-        TypedArray images = getResources().obtainTypedArray(R.array.image_family);
-        TypedArray audio = getResources().obtainTypedArray(R.array.audio_family);
+        String[] defaultWords = getResources().getStringArray(R.array.default_phrases);
+        String[] miwokWords = getResources().getStringArray(R.array.miwok_phrases);
+        TypedArray audio = getResources().obtainTypedArray(R.array.audio_phrases);
 
-        for (int i = 0; i < defaultWords.length; i++) {
-            words.add(new Word(defaultWords[i], miwokWords[i], images.getResourceId(i, 0), audio.getResourceId(i, 0)));
-        }
+        for (int i = 0; i < defaultWords.length; i++)
+            words.add(new Word(defaultWords[i], miwokWords[i], audio.getResourceId(i, 0)));
 
-        WordAdapter adapter = new WordAdapter(this, words, R.color.category_family);
-        ListView listView = (ListView) findViewById(R.id.list);
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_phrases);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
         assert listView != null;
         listView.setAdapter(adapter);
 
@@ -74,7 +76,7 @@ public class FamilyActivity extends AppCompatActivity {
 
                 int result = audioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mediaPlayer = MediaPlayer.create(FamilyActivity.this, currentWord.getAudioResourceId());
+                    mediaPlayer = MediaPlayer.create(getActivity(), currentWord.getAudioResourceId());
                     mediaPlayer.setOnCompletionListener(completionListener);
 
                     mediaPlayer.start();
@@ -82,12 +84,13 @@ public class FamilyActivity extends AppCompatActivity {
             }
         });
 
-        images.recycle();
         audio.recycle();
+
+        return rootView;
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
 
         releaseMediaPlayer();
